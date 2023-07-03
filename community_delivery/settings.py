@@ -41,7 +41,7 @@ SECRET_KEY = env('SECRET_KEY', default='your secret key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -168,7 +168,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 if not DEBUG:
-  STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+  STATIC_ROOT = os.path.join(BASE_DIR, './home/static')
   STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
