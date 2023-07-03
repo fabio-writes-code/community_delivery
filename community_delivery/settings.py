@@ -67,13 +67,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = "community_delivery.urls"
@@ -121,15 +121,6 @@ DATABASES = {
         'PORT': env('DATABASE_PORT'),
     }
 }
-
-# print(env('DATABASE_NAME'))
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default=env('DATABASE_NAME'),
-#         conn_health_checks=True,
-#         conn_max_age=600
-#     )
-# }
 
 
 # Password validation
