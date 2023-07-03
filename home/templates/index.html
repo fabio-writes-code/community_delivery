@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+
+  <!--- Fonts -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Map Box -->
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
+
+
+  <!-- CSS doodle  -->
+  <script src="https://unpkg.com/css-doodle@0.34.9/css-doodle.min.js"></script>
+
+
+  {% load static %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/index.css' %}" media="screen"/>
+
+  <meta name="description" content="A community driven delivery platform for the ones who need it the most!" />
+  <meta
+      name="keywords"
+      content="delivy, community-driven, delivery-platform, projects, open source"
+  >
+  <title>Delivy</title>
+</head>
+<body data-username={{username}}>
+  <css-doodle>
+    @grid: 50/100vw;
+
+    @size: 1px calc(141.4% + 1px);
+    transform: rotate(@p(±45deg));
+    background: #AEACFB;
+    margin: auto;
+  </css-doodle>
+
+  <header class="flex-container header">
+    <div class="flex-item logo-container">
+      {% load static %}
+      <img src="../static/icons/logo.svg" alt="Delivy Logo">
+    </div>
+
+    <div class="flex-item">
+      <h1>Welcome, {{username}}</h1>
+    </div>
+  </header>
+
+  <main class="flex-container ">
+    <section class="flex-item">
+      <h1 id="logo" class="title-panel">Wishlist</h1>
+      <section>
+
+        <div class="tabset">
+          <input type="radio" name="tabs" id="tab1" aria-label:="Nearby" checked>
+          <input type="radio" name="tabs" id="tab2" aria-label:="My requests">
+          <input type="radio" name="tabs" id="tab3" aria-label:="my trips">
+
+          <ul aria-hidden="true">
+            <li role="tab">
+              <label for='tab1'>Nearby</label>
+            </li>
+            <li role="tab">
+              <label for="tab2">My requests</label>
+            </li>
+            <li role="tab">
+              <label for="tab3">My Trips</label>
+            </li>
+          </ul>
+
+          <div>
+            <section role="tabpanel" aria-labelledby="Nearby wishlist" class="wishlists">
+              <ol id="nearby-wishlist">
+                <!-- load wishlist -->
+              </ol>
+            </section>
+
+            <section role="tabpanel" aria-labelledby="My wishlist" class="wishlists">
+              <ol id="my-wishlist">
+                <!-- load wishlist -->
+              </ol>
+            </section>
+
+            <section role="tabpanel" aria-labelledby="My trips" class="wishlists">
+              <ol id="my-trips">
+                <!-- load wishlist -->
+              </ol>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <hr>
+      <section aria-label="Create a wishlist" class="row g-1">
+        <input
+          id="wishlist-items"
+          placeholder="Select a store and add items"
+          aria-label="Select a store and add items"
+          class="form-control"
+          required
+        >
+        <button id="add-wishlist" class="btn btn-primary success">Create Wishlist</button>
+      </section>
+    </section>
+
+    <section class="flex-item map-container" >
+      <h1 id="title" class="title-panel">Your Neighborhood</h1>
+      <div id="map">
+        <!-- load map -->
+      </div>
+    </section>
+  </main>
+  <script type="text/javascript" src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+  <!-- <script type="text/javascript" src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script> -->
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+
+  {% load static %}
+  <script id="map-key" type="module" src="{% static 'modules/index.js' %}" data-map="{{ map_key }}">
+  </script>
+
+  <noscript>
+      This application requires JavaScript to be enabled
+  </noscript>
+</body>
+</html>
