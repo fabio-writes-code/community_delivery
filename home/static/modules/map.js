@@ -3,7 +3,7 @@ import {
 } from './stores.js';
 
 
-import data from './config.json' assert {type: 'json'}
+// import data from './config.json' assert {type: 'json'}
 mapboxgl.accessToken = document.getElementById('map-key').getAttribute('data-map')
 
 
