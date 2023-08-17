@@ -40,6 +40,5 @@ const geocoder = addGeocoder(MAP, (data) => {
 const wishlists = document.getElementsByClassName('wishlists')
 
 for (const item of wishlists) {
-  console.log(item)
   item.addEventListener('click', updateWishlistStatus)
 }

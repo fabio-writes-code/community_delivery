@@ -43,8 +43,6 @@ export async function displayMyTrips(latitude, longitude) {
 }
 
 export async function updateWishlistStatus(event) {
-  console.log('Pending')
-  console.log(event.target.className)
   switch (event.target.className) {
     case 'accept':
       event.preventDefault()
